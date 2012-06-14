@@ -6291,7 +6291,7 @@ $.newList = function(length$) {
 };
 
 $.main = function() {
-  var oauth = $.OAuth2$3('1044005512706.apps.googleusercontent.com', ['https://www.googleapis.com/auth/calendar.readonly'], 'https://accounts.google.com/o/oauth2/');
+  var oauth = $.OAuth2$3('484081979759.apps.googleusercontent.com', ['https://www.googleapis.com/auth/calendar.readonly'], 'https://accounts.google.com/o/oauth2/');
   $.calApi = $.CalendarApi$3('https://www.googleapis.com/calendar/v3/', 'CalendarSample', oauth);
   oauth.login$1$immediate(true).onComplete$1(new $.Closure());
   $.add$1($.document().query$1('#login').get$on().get$click(), new $.Closure2(oauth));

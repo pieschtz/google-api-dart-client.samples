@@ -2,7 +2,8 @@
 #import('package:google-api-dart-client/calendar-v3.dart', prefix:'cal');
 #import('package:google-api-dart-client/oauth2.dart');
 
-final APP_ID = '1044005512706.apps.googleusercontent.com';
+// Replace this with your application ID!
+final APP_ID = '484081979759.apps.googleusercontent.com';
 
 var calApi;
 
