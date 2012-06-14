@@ -23,7 +23,7 @@ main() {
 }
 
 void loadCalendars() {
-  document.query('#login').style.display = ""; // We're logged in now
+  document.query('#login').style.display = "none"; // We're logged in now
   document.query('#loading').style.display = ""; // Show 'loading...' message
   calApi.calendarList.list().then((list) {
     document.query('#loading').remove();

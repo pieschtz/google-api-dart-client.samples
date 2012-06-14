@@ -5730,7 +5730,7 @@ $._DocumentEventsImpl$1 = function(_ptr) {
 };
 
 $.loadCalendars = function() {
-  $.document().query$1('#login').get$style().set$display('');
+  $.document().query$1('#login').get$style().set$display('none');
   $.document().query$1('#loading').get$style().set$display('');
   $.calApi.get$calendarList().list$0().then$1(new $.Closure55());
 };
