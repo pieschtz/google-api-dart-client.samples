@@ -1,0 +1,4 @@
+name: 'googleapis-samples-schedule'
+dependencies:
+  google-api-dart-client:
+    git: https://code.google.com/p/google-api-dart-client

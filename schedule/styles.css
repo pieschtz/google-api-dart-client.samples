@@ -1,0 +1,43 @@
+body {
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+}
+
+h1 {
+  background: #8af;
+  padding: 0.5em;
+  margin: 0;
+}
+
+.calendar {
+  margin: 1em;
+  border: 2px solid black;
+  padding: 0.5em;
+}
+
+.calendar h2 {
+  padding: 0.2em;
+  margin: -0.5em;
+  margin-bottom: 0.5em;
+  background-color: #006;
+  color: #acf;
+  font-size: medium;
+}
+
+#login {
+  float: right;
+}
+
+.time {
+  color: #888;
+  float: left;
+  width: 100px;
+  text-align: right;
+  margin-right: 10px;
+}
+
+.no-events {
+  color: #888;
+  text-decoration: italic;
+}
