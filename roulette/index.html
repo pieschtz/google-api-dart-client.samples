@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+  </head>
+  <body>
+    <h1>Rickroll Roulette</h1>
+    <h2>Shorten your URLs and friendships!</h2>
+  
+  	<form id="shorten">
+      <input id="longUrl" placeholder="http://www.google.com/">
+      <input type="submit" value="Shorten">
+      <img id="spinner" src="spinner.gif" style="display:none">
+      <a id="shortUrl" href="#" style="display:none"></a>
+      <span id="error" style="display:none;"></span>
+    </form>
+  
+    <script type="application/dart" src="roulette.dart"></script>
+    <script src="https://dart.googlecode.com/svn/branches/bleeding_edge/dart/client/dart.js"></script>
+  </body>
+</html>

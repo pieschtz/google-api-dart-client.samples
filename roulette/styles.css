@@ -1,0 +1,17 @@
+body {
+  font-family: sans-serif;
+}
+
+h1 {
+  margin-bottom: 0;
+}
+h2 {
+  margin-top: 0;
+  color: #888;
+  font-style: italic;
+  font-size: medium;
+}
+
+#error {
+  color: red;
+}
