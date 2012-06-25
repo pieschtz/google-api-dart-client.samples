@@ -22,9 +22,10 @@ final APP_ID = '484081979759.apps.googleusercontent.com';
 var calApi;
 
 main() {
-  final oauth = new OAuth2(
-      APP_ID, [cal.CalendarApi.CALENDAR_READONLY_SCOPE],
-      tokenLoaded:(token) => loadCalendars());
+  final oauth = new OAuth2(APP_ID,
+      [cal.CalendarApi.CALENDAR_READONLY_SCOPE,
+      "https://www.googleapis.com/auth/userinfo.email"],
+      tokenLoaded:(loadCalendars));
   calApi = new cal.CalendarApi(
       applicationName:'CalendarSample',
       authenticator:oauth);
@@ -32,7 +33,8 @@ main() {
   document.query('#login').on.click.add((e) => oauth.login());
 }
 
-void loadCalendars() {
+void loadCalendars(token) {
+  document.query('#title').text = "Schedule for ${token.email}";
   document.query('#login').style.display = "none"; // We're logged in now
   document.query('#loading').style.display = ""; // Show 'loading...' message
   calApi.calendarList.list().then((list) {
