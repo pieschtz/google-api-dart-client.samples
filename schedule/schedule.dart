@@ -109,16 +109,16 @@ Element createEventBox(event) {
 }
 
 String formatTime(Date date) {
-  String hours = date.hours.toString();
-  String minutes = date.minutes.toString();
-  if (hours.length < 2) hours = "0$hours";
-  if (minutes.length < 2) minutes = "0$minutes";
-  return "$hours:$minutes";
+  String hour = date.hour.toString();
+  String minute = date.minute.toString();
+  if (hour.length < 2) hour = "0$hour";
+  if (minute.length < 2) minute = "0$minute";
+  return "$hour:$minute";
 }
 
 Date today() {
   Date now = new Date.now().toUtc();
-  return new Date(now.year, now.month, now.day, isUtc:now.isUtc());
+  return new Date(now.year, now.month, now.day, isUtc:now.isUtc);
 }
 
 String rfc3339Date(Date date) => date.toString().replaceFirst(' ', 'T');

@@ -1051,7 +1051,6 @@ $$.DateImplementation = {"":
   if (!((typeof other === 'object') && !!other.is$DateImplementation)) return false;
   return $.eq(this.millisecondsSinceEpoch, other.millisecondsSinceEpoch);
  },
- isUtc$0: function() { return this.isUtc.$call$0(); },
  DateImplementation$8: function(years, month, day, hour, minute, second, millisecond, isUtc) {
   this._asJs$0();
  },
@@ -4888,11 +4887,11 @@ $.stringReplaceFirstUnchecked = function(receiver, from, to) {
 };
 
 $.formatTime = function(date) {
-  var hours = $.toString(date.get$hours());
-  var minutes = $.toString(date.get$minutes());
-  if ($.ltB($.get$length(hours), 2)) hours = '0' + $.S(hours);
-  if ($.ltB($.get$length(minutes), 2)) minutes = '0' + $.S(minutes);
-  return $.S(hours) + ':' + $.S(minutes);
+  var hour = $.toString(date.get$hour());
+  var minute = $.toString(date.get$minute());
+  if ($.ltB($.get$length(hour), 2)) hour = '0' + $.S(hour);
+  if ($.ltB($.get$length(minute), 2)) minute = '0' + $.S(minute);
+  return $.S(hour) + ':' + $.S(minute);
 };
 
 $.shr = function(a, b) {
@@ -5963,7 +5962,7 @@ $._DedicatedWorkerContextEventsImpl$1 = function(_ptr) {
 
 $.today = function() {
   var now = $.DateImplementation$now$0().toUtc$0();
-  return $.DateImplementation$8(now.get$year(), now.get$month(), now.get$day(), 0, 0, 0, 0, now.isUtc$0());
+  return $.DateImplementation$8(now.get$year(), now.get$month(), now.get$day(), 0, 0, 0, 0, now.get$isUtc());
 };
 
 $._FileReaderEventsImpl$1 = function(_ptr) {
