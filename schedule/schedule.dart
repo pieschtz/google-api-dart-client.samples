@@ -22,18 +22,14 @@ final APP_ID = '484081979759.apps.googleusercontent.com';
 var calApi;
 
 main() {
-  final oauth = new OAuth2(APP_ID, ['https://www.googleapis.com/auth/calendar.readonly']);
-  calApi = new cal.CalendarApi(applicationName:'CalendarSample', authenticator:oauth);
-  // If we're already logged in, load calendars immediatesly
-  oauth.login(immediate:true).onComplete((f) {
-    if (f.hasValue) loadCalendars();
-  });
-  document.query('#login').on.click.add((e) {
-    // Log in for real in response to a click event, so we don't get popup-blocked.
-    oauth.login().onComplete((f) {
-      if (f.hasValue) loadCalendars();
-    });
-  });
+  final oauth = new OAuth2(
+      APP_ID, [cal.CalendarApi.CALENDAR_READONLY_SCOPE],
+      tokenLoaded:(token) => loadCalendars());
+  calApi = new cal.CalendarApi(
+      applicationName:'CalendarSample',
+      authenticator:oauth);
+  // Log in in response to a click event, so we don't get popup-blocked.
+  document.query('#login').on.click.add((e) => oauth.login());
 }
 
 void loadCalendars() {
