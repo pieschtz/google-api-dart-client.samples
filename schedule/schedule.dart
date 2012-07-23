@@ -16,13 +16,13 @@
 #import('package:google-api-dart-client/calendar-v3.dart', prefix:'cal');
 #import('package:google-api-dart-client/oauth2.dart');
 
-// Replace this with your application ID!
-final APP_ID = '484081979759.apps.googleusercontent.com';
+// Replace this with your client ID!
+final CLIENT_ID = '484081979759.apps.googleusercontent.com';
 
 var calApi;
 
 main() {
-  final oauth = new OAuth2(APP_ID,
+  final oauth = new OAuth2(CLIENT_ID,
       [cal.CalendarApi.CALENDAR_READONLY_SCOPE,
       "https://www.googleapis.com/auth/userinfo.email"],
       tokenLoaded:(loadCalendars));
