@@ -94,7 +94,7 @@ compare(a, b) {
 
 Element createEventBox(event) {
   final box = new DivElement();
-  box.text = event.summary;
+  box.text = (event.summary == null) ? "Busy" : event.summary;
   box.classes.add("event");
 
   final time = new SpanElement();
@@ -120,19 +120,19 @@ String formatTime(Date date) {
 
 Date today() {
   Date now = new Date.now().toUtc();
-  return new Date(now.year, now.month, now.day, isUtc:now.isUtc);
+  return new Date.utc(now.year, now.month, now.day);
 }
 
 String rfc3339Date(Date date) => date.toString().replaceFirst(' ', 'T');
 Date dateFromRfc3339(String text) {
   if (text == null) return null;
   if (text.endsWith('Z')) return new Date.fromString(text).toLocal();
-  final tzMatch = const RegExp(@'([+-])(\d\d):(\d\d)$').firstMatch(text);
+  final tzMatch = const RegExp(r'([+-])(\d\d):(\d\d)$').firstMatch(text);
   if (tzMatch == null) throw new IllegalArgumentException(text);
   final rawDate = new Date.fromString("${text.substring(0, tzMatch.start())}Z");
   final offset = new Duration(
-      hours:Math.parseInt(tzMatch.group(2)),
-      minutes:Math.parseInt(tzMatch.group(3)));
+      hours:int.parse(tzMatch.group(2)),
+      minutes:int.parse(tzMatch.group(3)));
   final zonedDate = (tzMatch.group(1) == '+')
       ? rawDate.subtract(offset)
       : rawDate.add(offset);
