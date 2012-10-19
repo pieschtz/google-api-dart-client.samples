@@ -13,6 +13,7 @@
 // limitations under the License.
 
 #import('dart:html');
+#import('dart:math');
 #import('package:google-api-dart-client/urlshortener-v1.dart');
 
 UrlshortenerApi _shortener;
@@ -24,9 +25,10 @@ void main() {
   final output = document.query('#shortUrl');
   final error = document.query('#error');
   final spinner = document.query('#spinner');
-  
+
   document.query('#shorten').on.submit.add((e) {
-    final url = (Math.random() < 0.1)
+    e.preventDefault();
+    final url = (new Random().nextDouble() < 0.1)
         ? "http://www.youtube.com/watch?v=oHg5SJYRHA0"
         : input.value;
     show(spinner);
@@ -37,12 +39,11 @@ void main() {
       try {
         output.text = output.href = f.value;
         show(output);
-      } catch (final ex) {
+      } catch (ex) {
         error.text = "Error: $ex";
         show(error);
       }
     });
-    e.preventDefault();
   });
 }
 
